@@ -1,0 +1,90 @@
+.footer {
+  background-color: $color-grey-dark-3;
+  // background-image: url(/img/tar.jpg);
+  // &__logo-box {
+  //   padding-top: 7rem;
+  //   text-align: center;
+
+  //   @include respond(tab-port) {
+  //     padding-top: 4rem;
+  //   }
+  // }
+
+  .footer__logo--box {
+    padding-top: 7rem;
+    text-align: center;
+    opacity: 0.85;
+    padding-bottom: 2rem;
+    /* background-size: 80px 68px; */
+  }
+  @media (max-width: 35rem) {
+    .footer__logo--box {
+      padding-top: 4rem;
+      opacity: 0.7;
+    }
+  }
+
+  // &__copyright {
+  //   font-family: Cormorant Infant;
+  //   font-weight: 400;
+  //   font-size: 1rem;
+  //   color: white;
+  //   text-align: center;
+  //   padding-bottom: 4rem;
+  //   opacity: 0.8;
+  //   padding-top: -3rem;
+
+  //   @include respond(tab-port) {
+  //     padding-bottom: 2rem;
+  //   }
+  // }
+
+  &__details {
+    font-family: Cormorant Infant;
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: white;
+    text-align: center;
+    padding-bottom: 4rem;
+
+    @include respond(tab-port) {
+      font-size: 1.1rem;
+    }
+  }
+
+  &__navigation {
+    border-top: 1px solid $color-grey-dark;
+    padding-top: 0.2rem;
+    display: inline-block;
+  }
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      color: $color-grey-light-1;
+      background-color: $color-grey-dark-3;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+
+    &:hover,
+    &:active {
+      color: $color-primary;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.4);
+      transform: rotate(5deg) scale(1.3);
+    }
+  }
+}

@@ -1,0 +1,86 @@
+.story {
+  width: 99%;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0
+  );
+  border-radius: 3px;
+  padding-top: 12rem; //text padding
+  font-size: 3rem;
+  font-family: khula;
+  font-weight: 300;
+  color: rgba(223, 213, 170, 0.9);
+  font-style: italic;
+  // transform:skewX(-12deg);
+
+  // @include StoryContainer(0.99, 223, 213, 170, 0.9, 255, 255, 255, 0 ); put rgba values into variables
+
+  
+
+  @media screen and (max-width: 920px), screen and (max-height: 1370px) {
+    padding-left: 4rem;
+  }
+
+  @include respond(tab-port) {
+    padding-top: 8rem;
+    font-size: 2rem;
+    padding-bottom: 30rem;
+  }
+
+  
+
+  &__shape {
+    // width: 16rem;
+    // height: 16rem;
+    width: 20rem;
+    height: 20rem;
+    float: left;
+    clip-path: circle(50% at 50% 50%);
+    position: relative;
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    transform: translateX(-3rem);
+    // border: 4px solid white;
+
+   
+
+    @include respond(tab-land) {
+      width: 14rem;
+      height: 14rem;
+      transform: translateX(-0.5rem);
+    }
+
+    @include respond(tab-port) {
+      width: 12rem;
+      height: 12rem;
+      transform: translateX(-1rem);
+    }
+  }
+
+  &__text {
+    @include respond(tab-port) {
+      font-size: 2rem;
+      
+    }
+  }
+
+  &__img {
+    height: 100%;
+    opacity: 0.65; //oldman opacity
+    // transform: translateX(-13.8rem) scale(1.6);
+    transform: translateX(3rem) scale(1.6);
+    backface-visibility: hidden;
+    transition: all 0.5s;
+
+    @include respond(tab-port) {
+      // transform: translateX(-10.2rem) scale(1.6);
+      transform: translateX(2rem) scale(1.6);
+    }
+  }
+
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+}

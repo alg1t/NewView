@@ -1,0 +1,116 @@
+.btn {
+  &:link,
+  &:visited {
+    text-decoration: none;
+    padding: 1rem 5rem;
+    display: inline-block;
+    border-radius: 4rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &__white {
+    background-color: $color-white;
+    color: $color-font-dark;
+
+    &--btn-2 {
+      @include linGrad($color-btnsnow-light, $color-btnsnow-dark, 0.88);
+      // color: #483ab5;
+      color: aliceblue;
+      // background-image: linear-gradient(
+      //   to right bottom,
+      //   rgba($color-btnsnow-light, 0.35),
+      //   rgba($color-btnsnow-dark, 0.35)
+      // );
+    }
+
+    &--btn-3 {
+      @include linGrad($color-btnsummer-light, $color-btnsummer-dark, 0.88);
+      color: #fcfcfc;
+    }
+
+    &--btn-6 {
+      @include linGrad($color-btnc-light, $color-btnc-dark, 0.95);
+      color: #fcfaf7;
+    }
+
+    &--btn-1 {
+      @include linGrad($color-Autumn-light, $color-Autumn-dark-2, 0.9);
+      color: aliceblue;
+    }
+
+    &--btn-4 {
+      @include linGrad($color-summer-light, $color-primary, 0.9);
+      color: aliceblue;
+    }
+
+    &--btn-5 {
+      @include linGrad($color-sea-lightest, $color-sea-dark, 0.9);
+      color: aliceblue;
+    }
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
+}
+/*the learn more button*/
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    padding: 3px;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    transform: translateY(-2px);
+  }
+}

@@ -1,0 +1,282 @@
+section#galleryContainer {
+  display: grid;
+  grid-template-columns: [container-start] 1fr [container-end];
+  grid-template-rows:
+    [header-start] minmax(10vh, 0.1fr) [header-end card-row-start] minmax(
+      90vh,
+      1fr
+    )
+    [card-row-end];
+  margin-top: -14.5rem;
+}
+
+.wire__map {
+  display: grid;
+  grid-column: container-start / container-end;
+  grid-row: header-start / card-row-end;
+  /* place-content: center; */
+  /* background-color: #f4a7a7; */
+  background-color: #e7e7e7;
+  /* padding: 12rem 10rem 10rem 12rem; */
+  height: auto;
+  width: 100%;
+  position: relative;
+  /* margin-top: -15rem; */
+  /* height: auto; */
+
+  &:before {
+    @include ghostImage(0.1, $school);
+  }
+}
+
+.header__gallery {
+  display: flex;
+  justify-content: center;
+
+  padding-top: 6rem;
+  // padding-bottom: -4rem;
+  font-size: 3rem;
+  & h2 {
+    padding-top: 6rem;
+
+    font-size: calc(5.1rem + 1.1vw);
+    /* font-family: "Khula", sans-serif; */
+    font-family: "Water Brush", cursive;
+    /* color: #6e5f61; */
+    // color: #9b9b9b;
+    color: $Garage-header;
+    font-weight: 300;
+  }
+}
+
+.gallery {
+  display: grid;
+  grid-row: card-row-start / card-row-end;
+  grid-template-columns: repeat(auto-fit, 33rem);
+  /*NO MIN-MAX*/
+  grid-gap: 10rem;
+  justify-content: center;
+  width: 100%;
+
+  &__card {
+    /* padding-top: -2rem; */
+    width: 34rem;
+    height: 53rem;
+    position: relative;
+
+    &--front,
+    &--back {
+      background-color: white;
+      height: 100%;
+      transition: all 1s ease-in-out;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      /* -webkit-backface-visibility: hidden; */
+      transform: perspective(100rem);
+      backface-visibility: hidden;
+      border-radius: 3px;
+      overflow: hidden;
+      box-shadow: 0 1.5rem 4rem rgba(245, 11, 11, 0.15);
+    }
+
+    // &--front:hover{
+    //   transform: perspective(100rem) rotateY(0.5turn);
+    // }         }
+
+    &--back {
+      transform: perspective(100rem) rotateY(0.5turn);
+      /*rotate(the perspective) back of card 180degress on cross axis*/
+      background-color: white;
+
+      // &:hover {
+      //   transform: perspective(100rem) rotateY(1turn);
+      // }
+
+      &__p {
+        place-self: center;
+        /*PLACE p IN THE CENTER*/
+        font-size: 2rem;
+        font-weight: 400;
+      }
+    }
+
+    &--picture__front,
+    &--picture__back {
+      opacity: 0.82;
+      background-size: cover;
+      height: 22rem;
+      background-blend-mode: screen;
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+    }
+
+    &:nth-child(1) &--picture__front {
+      @include imageGrad(
+        $color-primary-light,
+        $color-primary-dark,
+        $Autumn-img
+      );
+    }
+
+    &:nth-child(2) &--picture__front {
+      @include imageGrad(
+        $color-primary-light,
+        $color-primary-dark,
+        $Summer-img
+      );
+    }
+
+    &:nth-child(3) &--picture__front {
+      @include imageGrad(
+        $color-picture-seaLight,
+        $color-picture-seaDark,
+        $SeaFront-img
+      );
+    }
+
+    &:nth-child(1) &--picture__back {
+      @include imageGrad(
+        $color-primary-light,
+        $color-primary-dark,
+        $Winter-img
+      );
+    }
+    &:nth-child(2) &--picture__back {
+      @include imageGrad(
+        $color-primary-light,
+        $color-primary-dark,
+        $Spring-img
+      );
+    }
+
+    &:nth-child(3) &--picture__back {
+      @include imageGrad(
+        $color-primary-light,
+        $color-primary-dark,
+        $SeaBack-img
+      );
+    }
+
+    &--heading {
+      font-family: Khula;
+      font-size: 2rem;
+      font-weight: 400;
+      text-align: right;
+      color: rgb(255, 255, 255);
+      position: absolute;
+      top: 12.4rem;
+      right: 3rem;
+      width: 60%;
+    }
+
+    &:nth-child(1) .gallery__card--heading__span {
+      @include headerSpan;
+      @include linGrad // ((253, 136, 0,), (36, 13, 1,), 0.85);
+        ($color-primary-Aut, $color-secondary-Aut, 0.85);
+    }
+
+    &:nth-child(2) .gallery__card--heading__span {
+      @include headerSpan;
+      @include linGrad($color-summer-light, $color-summer-dark, 0.85);
+    }
+
+    &:nth-child(3) .gallery__card--heading__span {
+      @include headerSpan;
+      @include linGrad($color-sea-lightest, $color-sea-dark, 0.85);
+    }
+
+    &--details {
+      font-size: 2rem;
+      font-family: "Cormorant Garamond", serif;
+      padding-top: 6rem;
+      font-style: italic;
+      color: dimgray;
+      width: 90%;
+      margin: 0 auto;
+      text-align: center;
+
+      &__author {
+        font-size: 1.2rem;
+        color: black;
+        font-style: normal;
+      }
+    }
+
+    &--icon {
+      display: flex;
+      justify-content: center;
+      padding-top: 4rem;
+    }
+
+    &--cta {
+      position: relative;
+      top: 0%;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      font-family: "Khula";
+      font-weight: 300;
+    }
+
+    &--cta__front {
+      display: none;
+    }
+
+    &--cta__back {
+      display: flex;
+      justify-content: center;
+      padding: 5rem 0 rem 4rem 0rem;
+    }
+
+    &:hover .gallery__card--front {
+      transform: perspective(100rem) rotateY(0.5turn);
+    }
+
+    &:hover .gallery__card--back {
+      transform: perspective(100rem) rotateY(1turn);
+    }
+  }
+}
+
+@include respond(tab-land) {
+  .wire__map {
+    padding-bottom: 5rem;
+    &:before {
+      padding-bottom: 5rem;
+    }
+  }
+
+  .header__gallery {
+    padding-bottom: 0.1rem;
+    padding-top: 4rem;
+  }
+
+  .gallery {
+    grid-gap: 5rem;
+
+    &__card {
+      &--icon {
+        display: none;
+      }
+
+      &--cta__front {
+        display: flex;
+        justify-content: center;
+        padding: 2rem 0rem 4rem 0;
+      }
+
+      &--back {
+        transform: rotateY(0);
+        display: none;
+      }
+
+      &:hover .gallery__card--front {
+        transform: rotateY(0);
+      }
+    }
+  }
+}

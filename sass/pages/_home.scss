@@ -1,0 +1,219 @@
+// ******revised****************
+
+.section-about {
+  background-color: $color-grey-light-1;
+  height: auto;
+  padding-bottom: 32rem;
+  position: relative;
+
+  @media screen and (max-width: 1370px) and (max-height: 920px) {
+    padding-bottom: 25rem;
+  }
+
+  @include respond(tab-port) {
+    padding-bottom: 2rem;
+  }
+}
+
+.section-about:before {
+  @include ghostImage(0.15, $oldStreet);
+}
+
+.section-stories {
+  position: relative;
+  padding: 5rem 0 70rem 0;
+
+  @include respond(tab-port) {
+    padding: 5rem 0 40rem 0;
+  }
+}
+
+.section-feat {
+  position: relative;
+  padding: 12rem 0 30rem 0;
+  // background-image: url("/img/x.jpg");
+  // height: auto;
+  // padding-bottom: 32rem;
+  // position: relative;
+  // @include linGrad($color-sky-light, $color-sky-dark, 0.99);
+  @include respond(tab-port) {
+    padding: 5rem 0 5rem 0;
+  }
+}
+
+.section-feat:before {
+  @include ghostImage(0.6, $manWeb);
+}
+
+
+// ***********************Addition*********************
+.favcontainer {
+  display: grid;
+  grid-template-columns: [container-start] 1fr [container-end];
+  grid-column: container-start / container-end;
+  grid-template-rows: min-content 1fr;
+  
+  background-image: url(/img/0.jpg);
+  
+  // background-image: url();
+  // background-image: linear-gradient(
+  //     to right bottom,
+  //     rgba(38, 52, 65, 0.4),
+  //     rgba(38, 52, 65, 0.4)
+  //   ),
+  //   url(/img/0.jpg);
+
+  // .bg1{
+  //   background-image: linear-gradient(
+  //   to right bottom,
+  //   rgba(38, 52, 65, 0.4),
+  //   rgba(38, 52, 65, 0.4)
+  // ),
+  // url(/img/y.jpg);
+  // }
+
+  // .bg2{
+  //   background-image: linear-gradient(
+  //   to right bottom,
+  //   rgba(38, 52, 65, 0.4),
+  //   rgba(38, 52, 65, 0.4)
+  // ),
+  // url(/img/lakes3.jpg);
+  // }
+
+  // .bg3{
+  //   background-image: linear-gradient(
+  //   to right bottom,
+  //   rgba(38, 52, 65, 0.4),
+  //   rgba(38, 52, 65, 0.4)
+  // ),
+  // url(/img/snow.jpg);
+  // }
+
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  // grid-template-rows: min-content 90vh;
+  
+  // &:after {
+  //   @include linGrad // ((253, 136, 0,), (36, 13, 1,), 0.85);
+  //   ($color-primary-Aut, $color-secondary-Aut, 0.95);
+  // }
+
+  &__title {
+    // opacity: 0;
+    text-align: center;
+    font-family: "Khula", sans-serif;
+    font-weight: 300;
+    font-size: calc(2.5rem + 1.2vw);
+    margin-top: 7vw;
+    margin-bottom: 2vw;
+    z-index: 10;
+
+    color: #f3f0f0;
+  }
+
+  &__content {
+    max-width: 100rem;
+    padding-top: 1vw;
+    // opacity: 0;
+
+    margin: 0 auto;
+
+    //   //CIRCULAR IMAGES
+    &--indicator {
+      // opacity: 0;
+
+      padding-top: 4vh;
+      padding-bottom: 25vh;
+      display: flex;
+      justify-content: center;
+
+      &__img {
+        height: calc(3rem + 6vw);
+        width: calc(3rem + 6vw);
+        object-fit: cover; //MAINTAIN ASPECT RATIO
+        border-radius: 50%;
+        margin: 2vh 2vw;
+        opacity: 0.4; //1/5 GHOSTED
+        border: 2px solid white;
+        cursor: pointer;
+        //TRANSITION THE OPACITY!!!
+        transition: opacity 1s ease;
+      }
+
+      &__img.active {
+        //ACTIVE IMAGE
+        opacity: 1;
+      }
+    }
+
+    &--slider {
+      border: 1px solid rgb(243, 242, 242);
+      max-width: 60rem; //DONT GO ABOVE 600PX
+      margin: 0 auto; //DONT NEED FLEX
+      text-align: center; //CENTER TEXT IN SIDE IT
+      // padding: 3vh 1vw;
+      // background-color: #e6ddde;
+      // opacity: 0.4;
+
+      &__slide {
+        display: none;
+      }
+
+      &__slide.active {
+        display: block; //REVEAL
+        animation: slide 1s linear;
+      }
+
+      &__slide--para {
+        margin-bottom: 2vw;
+        font-family: "Khula", sans-serif;
+        font-weight: 300;
+        font-size: calc(1rem + 1vw);
+        color: #ffffff;
+        padding: 0 2rem 0 2rem;
+      }
+
+      &__slide--title {
+        font-family: "Khula", sans-serif;
+        font-weight: 300;
+        font-size: calc(1.5rem + 1.2vw);
+        color: #ffffff;
+        padding-bottom: 1vw;
+        padding-top: 2vw;
+      }
+    }
+  }
+
+  @include respond(tab-land) {
+    &__title {
+      padding-top: 20vw;
+    }
+    &__content {
+      padding-top: 10vw;
+      max-width: 75vw;
+      &--indicator {
+        //MAKE IMAGES BIGGER
+        &__img {
+          height: calc(7rem + 3vw);
+          width: calc(7rem + 3vw);
+        }
+      }
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translateX(-2rem);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  }
+}

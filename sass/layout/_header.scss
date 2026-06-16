@@ -1,0 +1,44 @@
+.header {
+  height: 100vh;
+
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(58, 10, 10, 0.5),
+      rgba(10, 4, 4, 0.5)
+    ),
+    url(/img/roomcol.jpg);
+
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  // -webkit-clip-path: polygon(0 0, 100% 0, 100% 100vh, 0 100%);
+  // clip-path: polygon(0 0, 100% 0, 100% 100vh, 0 100%);
+
+  @media (min-resolution: 192dpi) and (max-width: 56.25rem) {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(58, 10, 10, 0.5),
+        rgba(10, 4, 4, 0.5)
+      ),
+      url(/img/small100k.jpg);
+  }
+
+  &__text-box {
+    background-attachment: fixed;
+    position: absolute;
+    top: 63%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    @include respond(tab-port) {
+      width: 55rem;
+    }
+
+    @include respond(tab-phone) {
+      width: 35rem;
+      top: 60%;
+    }
+  }
+}

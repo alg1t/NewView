@@ -1,0 +1,139 @@
+#cppaint,
+#capaint,
+#cipaint1,
+#cnpaint1,
+#ctpaint,
+#cipaint,
+#cnpaint,
+#cgpaint,
+#cspaint,
+#ciin,
+#cnin,
+#cmmy,
+#cymy,
+#gg1,
+#ga1,
+#gr,
+#ga2,
+#gg2,
+#ge {
+  stroke: rgb(0, 0, 0);
+  stroke-width: 0.01px;
+  fill: transparent;
+  overflow: visible;
+}
+
+#cppaint {
+  @include animate(p-anim, 355, 0);
+  @include keyframeRender(p-anim, 355);
+}
+
+#capaint {
+  @include animate(a-anim, 160, 1);
+  @include keyframeRender(a-anim, 160);
+}
+
+#cipaint1 {
+  @include animate(i-anim, 75, 2);
+  @include keyframeRender(i-anim, 75);
+}
+
+#cnpaint1 {
+  @include animate(n-anim, 140, 3);
+  @include keyframeRender(n-anim, 140);
+}
+
+#ctpaint {
+  @include animate(t-anim, 142, 4);
+  @include keyframeRender(t-anim, 142);
+}
+
+#cipaint {
+  @include animate(i2-anim, 70, 5);
+  @include keyframeRender(i2-anim, 70);
+}
+
+#cnpaint {
+  @include animate(n2-anim, 139, 6);
+  @include keyframeRender(n2-anim, 139);
+}
+
+#cgpaint {
+  @include animate(g-anim, 210, 7);
+  @include keyframeRender(g-anim, 210);
+}
+
+#cspaint {
+  @include animate(s-anim, 85, 8);
+  @include keyframeRender(s-anim, 85);
+}
+
+#ciin {
+  @include animate(ciin-anim, 245, 9);
+  @include keyframeRender(ciin-anim, 245);
+}
+
+#cnin {
+  @include animate(cnin-anim, 140, 10);
+  @include keyframeRender(ciin-anim, 140);
+}
+
+#cmmy {
+  @include animate(cmmy-anim, 385, 11);
+  @include keyframeRender(cmmy-anim, 385);
+}
+
+#cymy {
+  @include animate(cymy-anim, 190, 12);
+  @include keyframeRender(cymy-anim, 190);
+}
+
+#gg1 {
+  @include animate(gg1-anim, 230, 13);
+  @include keyframeRender(gg1-anim, 230);
+}
+
+#ga1 {
+  @include animate(ga1-anim, 160, 14);
+  @include keyframeRender(ga1-anim, 160);
+}
+
+#gr {
+  @include animate(gr-anim, 90, 15);
+  @include keyframeRender(gr-anim, 90);
+}
+
+#ga2 {
+  @include animate(ga2-anim, 160, 16);
+  @include keyframeRender(ga2-anim, 90);
+}
+
+#gg2 {
+  @include animate(gg2-anim, 220, 17);
+  @include keyframeRender(gg2-anim, 220);
+}
+
+#ge {
+  @include animate(ge-anim, 120, 18);
+  @include keyframeRender(ge-anim, 120);
+}
+
+// #container {
+//   height: 100vh;
+//   width: 100vw;
+//   display: flex;
+//   justify-content: center;
+//   align-content: center;
+// }
+
+// #Layer_1 {
+//   background-size: 1500px 750px;
+//   // height: 100%;
+//   // width: 100%;
+//   // display: flex;
+//   // justify-content: center;
+// }
+
+// #Paintings_In_My_Garage {
+//   background-size: 500px 100px;
+// }

@@ -1,0 +1,221 @@
+@mixin reset {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin headerSpan {
+  padding: 0.9rem 0.5rem;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+@mixin linGrad($col1, $col2, $opacity) {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba($col1, $opacity),
+    rgba($col2, $opacity)
+  );
+}
+
+
+
+
+
+@mixin imageGrad($col1, $col2, $logo-img) {
+  $url: "/img/#{$logo-img}";
+  background-image: linear-gradient(to right bottom, $col1, $col2), url($url);
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin ghostImage($opacity, $background-img) {
+  $url: "../img/#{$background-img}";
+  content: " "; //::before and ::after both require content
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  opacity: $opacity;
+  background-image: url($url);
+  background-position: center;
+  height: 100%;
+  background-size: cover;
+}
+
+@mixin storyContainer($opacity, $col1, $col2) {
+width: 99%;
+margin: 0 auto;
+background-color: rgba($col2, $opacity);
+border-radius: 3px;
+padding-top: 12rem; //text padding
+font-size: 3rem;
+font-family: khula;
+font-weight: 300;
+color: rgba($col1);
+font-style: italic;
+// transform:skewX(-12deg);
+}
+// @mixin animate($sda, $renderTime, $renderForward) {
+//   stroke-dasharray: #{$sda}px;
+//   stroke-dashoffset: #{-$sda}px;
+//   animation: s-anim #{$renderTime}s linear #{$renderTime * $renderForward}s
+//     forwards;
+// }
+// @mixin animate($sda, $writeSpeedm, $renderForward) {
+//   stroke-dasharray: #{$sda}px;
+//   stroke-dashoffset: #{-$sda}px;
+//   animation: s-anim #{$writeSpeedm}s linear #{$writeSpeedm * $renderForward}s
+//     forwards;
+// }
+
+$writeSpeed: 0.16;
+
+@mixin animate($id, $sda, $renderForward) {
+  stroke-dasharray: #{$sda}px;
+  stroke-dashoffset: #{-$sda}px;
+  animation: #{$id} #{$writeSpeed}s linear #{$writeSpeed * $renderForward}s forwards;
+  -webkit-animation: #{$id} #{$writeSpeed}s linear #{$writeSpeed * $renderForward}s
+    forwards;
+  -moz-animation: #{$id} #{$writeSpeed}s linear #{$writeSpeed * $renderForward}s
+    forwards;
+}
+
+@mixin keyframeRender($id, $sda) {
+  animation-name: $id;
+  @at-root {
+    @keyframes #{$id} {
+      from {
+        stroke-dashoffset: #{-$sda}px;
+      }
+
+      to {
+        stroke-dashoffset: 0px;
+        fill: black;
+      }
+    }
+    @-webkit-keyframes #{$id} {
+      from {
+        stroke-dashoffset: #{-$sda}px;
+      }
+
+      to {
+        stroke-dashoffset: 0px;
+        fill: black;
+      }
+    }
+    @-moz-keyframes #{$id} {
+      from {
+        stroke-dashoffset: #{-$sda}px;
+      }
+
+      to {
+        stroke-dashoffset: 0px;
+        fill: black;
+      }
+    }
+  }
+}
+
+// @mixin animate($id, $sda, $renderForward) {
+//   stroke-dasharray: #{$sda}px;
+//   stroke-dashoffset: #{-$sda}px;
+//   animation: #{$id} #{$writeSpeed}s linear #{$writeSpeed * $renderForward}s forwards;
+// }
+
+// @mixin keyframeRender($id, $sda) {
+//   animation-name: $id;
+//   @at-root {
+//     @keyframes #{$id} {
+//       from {
+//         stroke-dashoffset: #{-$sda}px;
+//       }
+
+//       to {
+//         stroke-dashoffset: 0px;
+//         fill: black;
+//       }
+//     }
+//   }
+// }
+
+// @mixin animate($sda, $sdo, $renderTime, $renderForward) {
+//   stroke-dasharray: #{$sda}px;
+//   stroke-dashoffset: #{-$sda}px;
+//   animation: s-anim #{$renderTime}s linear #{$renderForward}s forwards;
+// }
+
+//fone to desktop in em not rem
+@mixin respond($breakpoint) {
+  // @if $breakpoint == tab-se1 {
+  //   @media (max-width:23.4em) {
+  //    @content
+
+  //    };
+
+  //  }
+
+  @if $breakpoint ==tab-se {
+    @media (max-width: 25em) {
+      @content;
+    }
+  }
+
+  // @if $breakpoint == tab-se1 {
+  //   @media (max-width: 26em)  {
+  //     @content
+  //   };
+
+  // }
+
+  @if $breakpoint ==tab-phone {
+    @media (max-width: 34.4em) {
+      @content;
+    }
+
+    //600px
+  }
+
+  @if $breakpoint ==tab-port {
+    @media (max-width: 35em) {
+      @content;
+    }
+
+    //900px
+  }
+
+  @if $breakpoint ==tab-land {
+    @media (max-width: 75em) {
+      @content;
+    }
+
+    //1200
+  }
+
+  // @if $breakpoint == big-desktop {
+
+  //   //1800
+  //   @media (min-width: 112.5em) {
+  //     @content
+  //   };
+
+  // }
+}
